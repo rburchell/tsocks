@@ -6,10 +6,13 @@
 
 #include <netinet/in.h>
 #include <sys/socket.h>
+#include <sys/types.h>
 #include <arpa/inet.h>
+#include <pwd.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <errno.h>
 #include <config.h>
 #include "common.h"
@@ -48,11 +51,10 @@ int read_config (char *filename, struct parsedfile *config) {
 
 	/* If a filename wasn't provided, use the default */
 	if (filename == NULL) {
-		strncpy(line, CONF_FILE, sizeof(line) - 1);
-		/* Insure null termination */
-		line[sizeof(line) - 1] = (char) 0;
-		filename = line;
+		filename = find_config(line);
 	}
+
+	show_msg(MSGDEBUG, "using %s as configuration file\n", line);
 
 	/* Read the configuration file */
 	if ((conf = fopen(filename, "r")) == NULL) {

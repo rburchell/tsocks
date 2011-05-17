@@ -289,11 +289,13 @@ int connect(CONNECT_SIGNATURE) {
    show_msg(MSGDEBUG, "Picked server %s for connection\n",
             (path->address ? path->address : "(Not Provided)"));
    if (path->address == NULL) {
-      if (path == &(config->defaultserver)) 
+      if (path == &(config->defaultserver)) {
          show_msg(MSGERR, "Connection needs to be made "
                           "via default server but "
                           "the default server has not "
-                          "been specified\n");
+                          "been specified. Falling back to direct connection.\n");
+                          return(realconnect(__fd, __addr, __len));
+   }
       else 
          show_msg(MSGERR, "Connection needs to be made "
                           "via path specified at line "
