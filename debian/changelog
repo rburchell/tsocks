@@ -1,0 +1,147 @@
+tsocks (1.8beta5-9.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix bashism in debian/rules (Closes: #478633)
+  * Bump Standards-Version to 3.8.0.
+
+ -- Chris Lamb <chris@chris-lamb.co.uk>  Sat, 07 Jun 2008 21:50:24 +0100
+
+tsocks (1.8beta5-9) unstable; urgency=low
+
+  * Applied `fallback' patch to allow to fall back to establish
+    direct connection instead of sockified if the fallback = yes
+    option found in the tsocks.conf to make sure that the user
+    won't open a direct one accidentally. (Closes: #471112)
+
+ -- Tamas SZERB <toma@rulez.org>  Sun, 16 Mar 2008 13:04:44 +0100
+
+tsocks (1.8beta5-8) unstable; urgency=low
+
+  * Applied Viktor Radnai's patch to fall back to real connect if there is no default server
+    specified. Sam patch request from Joachim Breitner (Closes: #373642).
+
+ -- Tamas SZERB <toma@rulez.org>  Sat, 15 Mar 2008 12:03:56 +0100
+
+tsocks (1.8beta5-7) unstable; urgency=low
+
+  * Switch to compat level 6 as it the recommend level now and move
+    this from rules to the compat file.
+  * Switch from Homepage tag to Homepage control field.
+  * Bump standards version to 3.7.3, no changes needed.
+  * Include patch (05_config_in_home.dpatch) by Reinhard Tartler
+    to make sure that tsocks looks for tsocks.conf in the user
+    home directory first (Closes: #465325).
+  * Fix debian-rules-ignores-make-clean-error lintian warning.
+
+ -- Nico Golde <nion@debian.org>  Mon, 03 Mar 2008 13:54:19 +0100
+
+tsocks (1.8beta5-6) unstable; urgency=low
+
+  * Integrated two patches by Peter Palfrader to fix
+    an infinite loop if recv returns 0 and to intercept
+    getpeername (Closes: #240429, #239025).
+  * Removed everything except etc from dirs since
+    the directories are created by Makefile.
+
+ -- Nico Golde <nion@debian.org>  Mon, 02 Apr 2007 20:08:32 +0200
+
+tsocks (1.8beta5-5) unstable; urgency=low
+
+  * Corrected Homepage tag.
+
+ -- Nico Golde <nion@debian.org>  Fri, 30 Mar 2007 13:27:10 +0200
+
+tsocks (1.8beta5-4) unstable; urgency=low
+
+  * Added myself to uploaders (Closes: #387473).
+  * Bumped compat level.
+  * Conformed to Standards version 3.7.2.
+  * Added Homepage tag to control.
+  * Fixed broken copyright file.
+  * Use $(CURDIR) instead of `pwd` in rules.
+  * Added dependency on dpatch.
+  * Included patch by Kapil Hari Paranjape to prevent
+    export of specific symbol (Closes: #278906, #134729)
+  * Fix hyphens in manpage (Closes: #295568).
+  * Added saveme manpage (Closes: #316024).
+  * Removed conffiles, not needed anymore.
+
+ -- Nico Golde <nion@debian.org>  Fri, 30 Mar 2007 10:45:19 +0200
+
+tsocks (1.8beta5-3) unstable; urgency=low
+
+  * TSOCKS_CONFFILE -> TSOCKS_CONF_FILE manpage bug (closes: #311805)
+
+ -- Tamas SZERB <toma@rulez.org>  Tue, 10 Oct 2006 20:48:35 +0200
+
+tsocks (1.8beta5-2) unstable; urgency=low
+
+  * Not using socks server for name resolution
+    --enable-socksdns removed. (closes: #233051, #175011, #184654, #204948)
+  * debconf not needed, because it will have an user defined
+    config too. (closes: #179646)
+  * manpages cleanup, references, missings fixed (closes: #226801)
+  * config.{guess,sub} up2date from autotools-dev
+
+ -- Tamas SZERB <toma@rulez.org>  Thu, 22 Apr 2004 10:34:02 +0200
+
+tsocks (1.8beta5-1) unstable; urgency=low
+
+  * new upstream version
+  * mostly bugfixes, eg. close()
+  * remote dns resolving (closes: #166773) with
+    --enable-socksdns --enable-hostnames so please get rid of
+    hostnames in the config file and use ip addresses only!
+    (NOTE: doesn't work as expected)
+  * sed, fileutils are required pkgs (from Build-Depends) so removed
+  * Irritating tsocks script -- sh conflict (closes: #174047)
+  * modified tsocks(8) manpage regarding TSOCKS_CONF_FILE
+    environment variable
+
+ -- Tamas SZERB <toma@rulez.org>  Mon, 23 Dec 2002 09:24:55 +0100
+
+tsocks (1.8beta4-2) unstable; urgency=low
+
+  * --disable-hostnames bugfix (closes: #140094)
+
+ -- Tamas SZERB <toma@rulez.org>  Wed, 27 Mar 2002 14:31:19 +0100
+
+tsocks (1.8beta4-1) unstable; urgency=low
+
+  * new upstream release
+  * segfault fix on ia64 (closes: #131334)
+  * Allow TSOCKS_CONF_FILE to specify location of config (closes: #135597)
+  * Now respects the default_user and pass specified for path
+    (closes: #135291)
+
+ -- Tamas SZERB <toma@rulez.org>  Mon, 25 Mar 2002 19:28:40 +0100
+
+tsocks (1.7-4) unstable; urgency=low
+
+  * modified description for the sake of Pista ;)
+
+ -- Tamas SZERB <toma@rulez.org>  Wed, 29 Aug 2001 01:24:11 +0200
+
+tsocks (1.7-3) unstable; urgency=low
+
+  * license missed
+  * upload wnpp fix (closes: #105457)
+
+ -- Tamas SZERB <toma@rulez.org>  Mon, 23 Jul 2001 22:35:10 +0200
+
+tsocks (1.7-2) unstable; urgency=low
+
+  * ts -> tsocks (bin, and man too) because the ts package has a ts binary
+
+ -- Tamas SZERB <toma@rulez.org>  Mon, 23 Jul 2001 22:34:49 +0200
+
+tsocks (1.7-1) unstable; urgency=low
+
+  * Initial release.
+  * first upload - wnpp (closes: #105457)
+
+ -- Tamas SZERB <toma@rulez.org>  Sun, 15 Jul 2001 11:03:59 +0200
+
+Local variables:
+mode: debian-changelog
+End:

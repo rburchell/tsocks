@@ -1,0 +1,4 @@
+debian/plus/tsocks.1
+debian/plus/saveme.8
+tsocks.8
+tsocks.conf.5

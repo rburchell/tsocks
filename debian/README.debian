@@ -1,0 +1,11 @@
+tsocks for Debian
+----------------------
+
+
+	- libtsocks.so - the libtsocks library
+	- validateconf - a utility to verify the tsocks configuration file
+	- inspectsocks - a utility to determine the version of a socks server
+	- saveme - a statically linked utility to remove /etc/ld.so.preload
+		   if it becomes corrupt
+
+Tamas SZERB <toma@rulez.org>, Sun, 15 Jul 2001 11:03:59 +0200

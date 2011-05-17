@@ -1053,8 +1053,7 @@ static int recv_buffer(struct connreq *conn) {
             conn->datadone, conn->datalen);
          rc = ENOTCONN; /* ENOTCONN seems like the most fitting error message */
       } else {
-         if (errno != EWOULDBLOCK)
-            show_msg(MSGDEBUG, "Read failed, %s\n", strerror(errno));
+         show_msg(MSGDEBUG, "Read failed, %s\n", strerror(errno));
          rc = errno;
       }
    }
